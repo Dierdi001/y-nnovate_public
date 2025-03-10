@@ -10,7 +10,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Roboto']
+        sans: ['Inter', 'sans-serif'],
+        manrope: ["Manrope", "sans-serif"]
       }
     },
   },
