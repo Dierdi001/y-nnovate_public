@@ -1,11 +1,9 @@
 <script setup lang="ts">
-import Hero from "~/components/Hero.vue";
-import OurServices from "~/components/OurServices.vue";
+import UiIndex from "~/components/ui/index.vue";
 </script>
 
 <template>
   <div>
-    <Hero />
-    <OurServices />
+    <UiIndex />
   </div>
 </template>

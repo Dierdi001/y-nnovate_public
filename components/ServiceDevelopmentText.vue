@@ -1,20 +1,25 @@
 <template>
-  <div class="service-box">
-    <!-- Titre à gauche -->
-    <div class="title">
-      <h2 class="font-bold font-manrope gradient-text">Développement d'application</h2>
-    </div>
+  <transition name="fade-slide">
+    <div class="service-box">
+      <!-- Section gauche : Titre + Texte -->
+      <div class="text-content">
+        <h2 class="title">Développement d'application</h2>
+        <p class="description">
+          Une équipe assez compétente pour créer des applications qui répondent à vos besoins avec performance et innovation.
+        </p>
+      </div>
 
-    <!-- Smartphone à droite -->
-    <div class="smartphone">
-      <div class="screen">
-        <div class="apk-icon">
-          <span class="logo"> &lt;/&gt; </span>
-          <span class="label">Apk</span>
+      <!-- Section droite : Smartphone -->
+      <div class="smartphone">
+        <div class="screen">
+          <div class="apk-icon">
+            <span class="logo">&lt;/&gt;</span>
+            <span class="label">Apk</span>
+          </div>
         </div>
       </div>
     </div>
-  </div>
+  </transition>
 </template>
 
 <script>
@@ -24,27 +29,54 @@ export default {
 </script>
 
 <style scoped>
+/* Animation de sortie */
+.fade-slide-leave-active {
+  transition: opacity 2s ease-out, transform 2s ease-out;
+}
+
+.fade-slide-leave-to {
+  opacity: 0;
+  transform: translateX(50px); /* Déplace vers la droite */
+}
+
 .service-box {
-  height: 300px;
-  background-color: transparent;
-  padding: 3rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  background-color: transparent;
+  padding: 2rem 3rem;
   border-radius: 8px;
+  height: 300px;
+}
+
+/* Section Texte */
+.text-content {
+  flex: 1;
+  color: white;
+  max-width: 60%;
 }
 
 .title {
-  flex: 1;
-  color: white;
-  font-size: 4rem;
-  max-width: 70%;
-  word-wrap: break-word;
-  display: flex;
-  justify-content: start;
-  align-items: start;
+  font-size: 3rem;
+  font-weight: bold;
+  font-family: 'Manrope', sans-serif;
+  background: linear-gradient(to bottom, #ededed, #737374);
+  -webkit-background-clip: text;
+  color: transparent;
+  text-align: left;
 }
 
+.description {
+  font-size: 1rem;
+  font-weight: normal;
+  font-family: 'Manrope', sans-serif;
+  margin-top: 0.5rem;
+  color: #cfcfcf;
+  line-height: 1.5;
+  text-align: justify;
+}
+
+/* Smartphone */
 .smartphone {
   width: 120px;
   height: 200px;
@@ -84,11 +116,5 @@ export default {
   font-size: 14px;
   margin-top: 5px;
   display: block;
-}
-
-.gradient-text {
-  background: linear-gradient(to bottom, #ededed, #737374);
-  -webkit-background-clip: text;
-  color: transparent;
 }
 </style>

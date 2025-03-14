@@ -80,8 +80,8 @@ onMounted(() => {
         scrub: true,
         onEnter: () => {
           gsap.to(hero.value, {
-            background: "radial-gradient(circle, #452c97, #111113)",
-            duration: 1,
+            background: "transparent",
+            duration: 0.5,
           });
           squares.value.forEach((square) => {
             square.color = "#572ccc";
