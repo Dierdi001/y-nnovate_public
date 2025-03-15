@@ -91,7 +91,7 @@ export default {
     circle at top right,
     #1552299c,
     #24524e54 30%,
-    #0d0d0d 60%
+    #000000 60%
   );
   border-radius: 10px;
 }
@@ -102,7 +102,7 @@ export default {
     circle at top right,
     #59257bc9,
     #0d0d0d 20%,
-    #0d0d0d 60%
+    #000000 60%
   );
   display: flex;
   justify-content: space-between;
