@@ -3,7 +3,7 @@
     <div class="icon">
       <img
         v-if="!isHovered"
-        src="https://www.svgrepo.com/show/324137/advertising-marketing-management-business.svg"
+        src="@/assets/images/marketing-hand-give-bar-chart-statistic-svgrepo-com.svg"
         alt="Marketing"
       />
       <Transition
@@ -62,16 +62,25 @@ export default {
       });
     },
     animateTyping() {
+      // Vérifie et nettoie un ancien intervalle en cours
+      if (this.typingInterval) {
+        clearInterval(this.typingInterval);
+      }
+
       this.animatedText = "";
       let index = 0;
-      const interval = setInterval(() => {
-        if (index < this.fullText.length) {
-          this.animatedText += this.fullText[index];
-          index++;
-        } else {
-          clearInterval(interval);
-        }
-      }, 200);
+      
+      // Utiliser Vue.nextTick pour forcer la mise à jour avant de commencer l'animation
+      this.$nextTick(() => {
+        this.typingInterval = setInterval(() => {
+          if (index < this.fullText.length) {
+            this.animatedText += this.fullText[index];
+            index++;
+          } else {
+            clearInterval(this.typingInterval); // Nettoyage final
+          }
+        }, 200);
+      });
     },
   },
 };
@@ -97,15 +106,17 @@ export default {
 }
 
 .icon img {
-  width: 50px;
-  height: 50px;
+  width: 60px;
+  height: 60px;
   margin-bottom: 1rem;
+  filter: invert(54%) sepia(77%) saturate(100%) hue-rotate(200deg) brightness(90%) contrast(85%);
+
 }
 
 .icon .boom-text {
   height: 50px;
   margin-bottom: 1rem;
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   font-weight: bold;
   font-family: "Manrope", sans-serif;
   background: linear-gradient(to bottom, #ededed, #737374);
