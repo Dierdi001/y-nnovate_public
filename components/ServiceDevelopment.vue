@@ -16,7 +16,7 @@
         <div class="scroll-box" ref="scrollBox">
           <div
             class="shimmer-line"
-            v-for="index in 20"
+            v-for="index in 12"
             :key="index"
             :style="{ width: getRandomWidth(), borderRadius: '5px' }"
           ></div>
@@ -59,11 +59,9 @@ export default {
       this.isHovered = true;
     },
     beforeEnter(el) {
-      // This hook is fired before the transition starts
       el.style.opacity = 0;
     },
     enter(el, done) {
-      // This hook is fired when the transition starts
       gsap.to(el, {
         opacity: 1,
         duration: 1,
@@ -71,7 +69,6 @@ export default {
       });
     },
     leave(el, done) {
-      // This hook is fired when the transition ends
       gsap.to(el, {
         opacity: 0,
         duration: 1,
@@ -91,7 +88,7 @@ export default {
     circle at top right,
     #1552299c,
     #24524e54 30%,
-    #0d0d0d 60%
+    #000000 60%
   );
   border-radius: 10px;
 }
@@ -102,7 +99,7 @@ export default {
     circle at top right,
     #59257bc9,
     #0d0d0d 20%,
-    #0d0d0d 60%
+    #000000 60%
   );
   display: flex;
   justify-content: space-between;
