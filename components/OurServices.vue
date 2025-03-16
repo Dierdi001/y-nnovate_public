@@ -93,6 +93,10 @@ export default {
   position: relative;
 }
 
+.row-2 .box{
+  height: 380px
+}
+
 @property --angle {
   syntax: "<angle>";
   initial-value: 0deg;

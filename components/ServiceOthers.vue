@@ -1,6 +1,6 @@
 <template>
     <div class="service-box">
-      <h3>Others</h3>
+      <h3>Audit Et Etudes de projet</h3>
       <p>Service de marketing description...</p>
     </div>
   </template>
