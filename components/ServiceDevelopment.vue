@@ -22,23 +22,26 @@
           ></div>
         </div>
 
-        <div class="code-box">
-          <pre class="code-line shimmer-effect">
-            <code>
-              > npm install
-            </code>
-          </pre>
-          <pre class="code-line shimmer-effect">
-            <code>
-              > npm run dev
-            </code>
-          </pre>
-          <pre class="code-line">
-            <code>
-              > npm build
-            </code>
-          </pre>
-          <span class="cursor-blink"></span>
+        <div class="code-container">
+          <div class="code-title">Du code écrit sur mesure</div>
+          <div class="code-box">
+            <pre class="code-line shimmer-effect">
+      <code>
+        > npm install
+      </code>
+    </pre>
+            <pre class="code-line shimmer-effect">
+      <code>
+        > npm run dev
+      </code>
+    </pre>
+            <pre class="code-line">
+      <code>
+        > npm build
+      </code>
+    </pre>
+            <span class="cursor-blink"></span>
+          </div>
         </div>
       </div>
     </Transition>
@@ -174,12 +177,31 @@ export default {
   align-items: center;
 }
 
+.code-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 40%;
+  text-align: right;
+}
+
+.code-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 8px;
+  text-align: right;
+  font-family: "Manrope", sans-serif;
+  background: linear-gradient(to bottom, #ededed, #737374);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
 /* Style de la boîte de code à droite */
 .code-box {
   font-family: "Courier New", monospace;
   font-size: 14px;
   cursor: text;
-  width: 40%;
+  width: 100%;
   max-width: 600px;
   padding: 5px;
   background-color: #1e1e1e;

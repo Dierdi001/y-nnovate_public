@@ -2,7 +2,7 @@
   <section ref="hero" class="hero" :style="heroBackgroundStyle">
     <div class="container text-center relative">
       <div
-        class="text-center flex flex-col justify-center items-center h-[90vh]"
+        class="text-center flex flex-col justify-center items-center h-[75vh]"
       >
         <h1 class="text-7xl font-medium gradient-text font-manrope">
           Vos défis, <br />
@@ -14,7 +14,7 @@
       </div>
 
       <!-- Composant DataFlowLogo (Visible au scroll) -->
-      <div ref="dataFlowContainer" class="opacity-0 mb-16">
+      <div ref="dataFlowContainer" class="opacity-1 mb-5">
         <DataFlowLogo />
       </div>
 
@@ -75,13 +75,13 @@ onMounted(() => {
       duration: 1,
       scrollTrigger: {
         trigger: dataFlowContainer.value,
-        start: "top 90%",
+        start: "top 60%",
         end: "top 80%",
         scrub: true,
-        onEnter: () => {
+        onLeave: () => {
           gsap.to(hero.value, {
             background: "transparent",
-            duration: 0.5,
+            duration: 1,
           });
           squares.value.forEach((square) => {
             square.color = "#572ccc";
