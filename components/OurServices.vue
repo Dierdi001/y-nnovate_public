@@ -1,7 +1,7 @@
 <template>
-  <section class="ourServices-section">
+  <section class="ourServices-section h-full mt-24">
     <h3 class="section-title">Nos Services</h3>
-    <div class="grid-row row-1">
+    <div class="grid-row row-1 mt-8">
       <ServiceMarketing 
         class="box box-1"  
         @mouseenter="handleMouseEnterBoxOne"
@@ -61,7 +61,6 @@ export default {
   justify-content: center;
   align-items: center;
   padding: 2rem;
-  height: 100vh;
   width: 100%;
   gap: 1rem;
 }

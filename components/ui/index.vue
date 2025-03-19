@@ -2,11 +2,13 @@
   <div class="index">
     <Hero />
     <OurServices />
+    <PartnerGrid />
   </div>
 </template>
 <script>
 import Hero from "~/components/Hero.vue";
 import OurServices from "~/components/OurServices.vue";
+import PartnerGrid from "~/components/PartnerGrid.vue";
 export default {
     name: "UiIndex"
 }
