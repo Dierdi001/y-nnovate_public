@@ -1,6 +1,7 @@
 <template>
-  <section class="ourServices-section">
-    <div class="grid-row row-1">
+  <section class="ourServices-section h-full mt-24">
+    <h3 class="section-title">Nos Services</h3>
+    <div class="grid-row row-1 mt-8">
       <ServiceMarketing 
         class="box box-1"  
         @mouseenter="handleMouseEnterBoxOne"
@@ -60,9 +61,20 @@ export default {
   justify-content: center;
   align-items: center;
   padding: 2rem;
-  height: 100vh;
   width: 100%;
   gap: 1rem;
+}
+
+.section-title {
+  font-size: 3.2rem;
+  font-weight: medium;
+  margin-bottom: 8px;
+  text-align: center;
+  font-family: "Manrope", sans-serif;
+  background: linear-gradient(to bottom, #ededed, #737374);
+  -webkit-background-clip: text;
+  color: transparent;
+  margin-bottom: 1rem;
 }
 
 /* Première ligne */
@@ -77,7 +89,7 @@ export default {
 /* Deuxième ligne avec inversion */
 .row-2 {
   display: grid;
-  grid-template-columns: 75% 24%;
+  grid-template-columns: 70% 29%;
   gap: 1rem;
   width: 80%;
   max-width: 1200px;
@@ -91,6 +103,10 @@ export default {
   border: transparent;
   z-index: 1;
   position: relative;
+}
+
+.row-2 .box{
+  height: 380px
 }
 
 @property --angle {
