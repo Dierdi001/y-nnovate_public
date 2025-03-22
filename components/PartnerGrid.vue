@@ -1,15 +1,5 @@
 <template>
   <div class="sponsors-grid mt-36">
-    <h2 class="section-title">Nous sponsorisent</h2>
-    <div class="grid">
-      <PartnerCard
-        v-for="sponsor in formattedPartners"
-        :key="sponsor.name || Math.random()"
-        :sponsor="sponsor"
-        :empty="!sponsor.name"
-      />
-    </div>
-
     <h2 class="section-title">Nous ont fait confiance</h2>
     <div class="grid">
       <PartnerCard
@@ -88,6 +78,7 @@ const formattedPlatinumSponsors = computed(() => fillEmptyClientsSlots([...plati
   align-items: center;
   justify-content: center;
   color: rgba(255, 255, 255, 0.5);
+  
 }
 
 </style>
