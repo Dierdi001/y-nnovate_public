@@ -2,14 +2,10 @@
     <div>
       <!-- Inclure la Navbar -->
       <Navbar />
-      
-      <!-- Contenu principal -->
-      <div class="container my-4">
-        <slot></slot> <!-- Ici, le contenu principal sera injecté -->
+      <div class="container">
+        <slot></slot>
       </div>
-      
-      <!-- Inclure le Footer -->
-      <Footer />
+            <Footer />
     </div>
   </template>
   
