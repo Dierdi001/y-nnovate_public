@@ -81,4 +81,52 @@ const formattedPlatinumSponsors = computed(() => fillEmptyClientsSlots([...plati
   
 }
 
+@media (max-width: 1024px) {
+  .section-title {
+    font-size: 2rem;
+    width: 90%;
+  }
+
+  .grid {
+    width: 90%;
+    gap: 8px;
+  }
+}
+
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 1.8rem;
+    padding: 6px;
+    width: 95%;
+  }
+
+  .grid {
+    flex-wrap: wrap;
+    width: 95%;
+    gap: 6px;
+  }
+
+  .partner-card {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-title {
+    font-size: 1.5rem;
+    padding: 5px;
+    margin-bottom: 15px;
+  }
+
+  .grid {
+    gap: 4px;
+  }
+
+  .partner-card {
+    width: 100px;
+    height: 100px;
+  }
+}
+
 </style>

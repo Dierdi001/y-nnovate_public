@@ -246,4 +246,84 @@ export default {
     background-position: -200% 0;
   }
 }
+
+@media (max-width: 1024px) {
+  .dev-service-container {
+    height: auto;
+    padding: 1rem;
+  }
+
+  .dev-service-box {
+    flex-direction: column;
+    height: auto;
+    padding: 1rem;
+  }
+
+  .scroll-box {
+    width: 100%;
+    height: auto;
+    max-height: 200px;
+    overflow-y: auto;
+  }
+
+  .code-container {
+    width: 100%;
+    text-align: center;
+    margin-top: 1rem;
+  }
+
+  .code-title {
+    font-size: 1.5rem;
+  }
+
+  .code-box {
+    font-size: 12px;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .dev-service-container {
+    padding: 0.5rem;
+  }
+
+  .dev-service-box {
+    padding: 0.5rem;
+  }
+
+  .scroll-box {
+    max-height: 150px;
+  }
+
+  .code-title {
+    font-size: 1.3rem;
+  }
+
+  .code-box {
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 480px) {
+  .dev-service-container {
+    padding: 0.2rem;
+  }
+
+  .dev-service-box {
+    padding: 0.2rem;
+  }
+
+  .scroll-box {
+    max-height: 120px;
+  }
+
+  .code-title {
+    font-size: 1.2rem;
+  }
+
+  .code-box {
+    font-size: 10px;
+  }
+}
+
 </style>

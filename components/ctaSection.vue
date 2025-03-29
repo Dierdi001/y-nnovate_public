@@ -15,7 +15,7 @@ export default {
   props: {
     title: {
       type: String,
-      default: "Transformez Vos Idées en Réalité",
+      default: "Transformez vos idées en réalité",
     },
     description: {
       type: String,
@@ -83,7 +83,7 @@ p {
   font-size: 1.2rem;
   font-weight: bold;
   color: white;
-  background: linear-gradient(45deg, #ff00ff, #6100ff);
+  background: linear-gradient(45deg, #ff00ffd7, #6200ffd7);
   border-radius: 8px;
   text-decoration: none;
   transition: 0.3s;

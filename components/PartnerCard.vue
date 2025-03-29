@@ -53,4 +53,6 @@ defineProps({
   font-size: 1rem;
   font-weight: bold;
 }
+
+
 </style>

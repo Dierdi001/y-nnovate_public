@@ -154,4 +154,82 @@ p {
 .fade-enter-to {
   opacity: 1;
 }
+
+@media (max-width: 1024px) {
+  .service-box {
+    padding: 1.5rem;
+    width: 90%; /* Réduit la largeur pour éviter un affichage trop large */
+    max-width: 600px;
+    margin: auto;
+  }
+
+  .icon img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .icon .boom-text {
+    font-size: 1.2rem;
+  }
+
+  .title {
+    font-size: 1.8rem;
+  }
+
+  p {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .service-box {
+    padding: 1.2rem;
+    width: 95%;
+    max-width: 500px;
+  }
+
+  .icon img {
+    width: 45px;
+    height: 45px;
+  }
+
+  .icon .boom-text {
+    font-size: 1rem;
+  }
+
+  .title {
+    font-size: 1.6rem;
+  }
+
+  p {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .service-box {
+    padding: 1rem;
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+  }
+
+  .icon img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .icon .boom-text {
+    font-size: 0.9rem;
+  }
+
+  .title {
+    font-size: 1.4rem;
+  }
+
+  p {
+    font-size: 0.8rem;
+  }
+}
+
 </style>
