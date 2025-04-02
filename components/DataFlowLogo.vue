@@ -123,10 +123,21 @@
 <script>
 import { onMounted, ref } from "vue";
 import gsap from "gsap";
-import { MotionPathPlugin } from "gsap/MotionPathPlugin";
+import { MotionPathPlugin } from "gsap/all";
+// import { MotionPathPlugin } from "gsap/MotionPathPlugin";
+import ynnovateLogo from "@/assets/images/logo-ynnovate-removebg.png";
+
+
+gsap.registerPlugin(MotionPathPlugin);
 
 export default {
   name: "DataFlowLogo",
+  props: {
+    logoSrc: {
+      type: String,
+      default: ynnovateLogo
+    }
+  },
   setup() {
     const points = Array.from({ length: 10 }, () => ref(null));
 
@@ -142,10 +153,10 @@ export default {
             autoRotate: true,
           },
           delay: i * 5,
-          plugins: [MotionPathPlugin], // Ajout direct du plugin ici
         });
       }
 
+      // Animation des points vers la gauche
       for (let i = 5; i < 10; i++) {
         gsap.to(points[i].value, {
           duration: 5 + (i - 5),
@@ -157,7 +168,6 @@ export default {
             autoRotate: true,
           },
           delay: (i - 5) * 5,
-          plugins: [MotionPathPlugin], // Ajout direct du plugin ici
         });
       }
     });
@@ -176,7 +186,6 @@ export default {
     };
   },
 };
-
 </script>
 
 <style scoped>

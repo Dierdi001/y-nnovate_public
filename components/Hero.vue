@@ -40,12 +40,8 @@
 <script setup>
 import { ref, onMounted } from "vue";
 import gsap from "gsap";
-import ScrollTrigger from "gsap/ScrollTrigger";
 import DataFlowLogo from "@/components/DataFlowLogo.vue";
-
-
-// Enregistrement de ScrollTrigger
-gsap.registerPlugin(ScrollTrigger);
+import "gsap/ScrollTrigger"; // Import direct
 
 const dataFlowContainer = ref(null);
 const hero = ref(null);
@@ -53,9 +49,7 @@ const heroBackgroundStyle = ref({
   background: "radial-gradient(circle, #0d0d0d, #000)",
 });
 
-const generateRandomDelay = () => {
-  return `${(Math.random() * 2).toFixed(2)}s`;
-};
+const generateRandomDelay = () => `${(Math.random() * 2).toFixed(2)}s`;
 
 const squares = ref([
   { x: 0, y: 20, color: "#595959", animationDelay: generateRandomDelay() },
@@ -94,6 +88,7 @@ onMounted(() => {
   }
 });
 </script>
+
 
 <style scoped>
 .hero {
