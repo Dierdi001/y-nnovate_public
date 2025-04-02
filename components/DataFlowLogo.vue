@@ -114,6 +114,7 @@
         style="pointer-events: none"
         class="logo-image"
         preserveAspectRatio="xMidYMid meet"
+        fill="url(#logoGradient)"
       />
     </svg>
   </div>
@@ -209,7 +210,7 @@ circle {
 .logo-image {
   width: 150px;
   height: 150px;
-  filter: drop-shadow(0 0 10px rgba(0, 210, 255, 0.5));
+  filter: drop-shadow(0 0 10px #ff66fa4b);
 
 }
 
