@@ -123,7 +123,8 @@
 <script>
 import { onMounted, ref } from "vue";
 import gsap from "gsap";
-import { MotionPathPlugin } from "gsap/MotionPathPlugin";
+import { MotionPathPlugin } from "gsap/all";
+// import { MotionPathPlugin } from "gsap/MotionPathPlugin";
 import ynnovateLogo from "@/assets/images/logo-ynnovate-removebg.png";
 
 
