@@ -2,6 +2,7 @@
   <div class="index">
     <Hero />
     <OurServices />
+    <SloganSection/>
     <PartnerGrid />
     <TestimonialSection />
     <ctaSection />
@@ -13,6 +14,7 @@ import OurServices from "~/components/OurServices.vue";
 import PartnerGrid from "~/components/PartnerGrid.vue";
 import TestimonialSection from "~/components/TestimonialSection.vue";
 import ctaSection from "~/components/ctaSection.vue";
+import SloganSection from "~/components/SloganSection.vue";
 </script>
 <style scoped>
 .index {

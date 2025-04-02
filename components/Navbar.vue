@@ -40,8 +40,8 @@ const toggleMenu = () => {
 
 const menuItems = ref([
   { name: 'Home', link: '/' },
-  { name: 'Services', link: '/services' },
-  { name: 'Contact', link: '/contact' }
+  { name: 'Services', link: '/' },
+  { name: 'Contact', link: '/' }
 ]);
 </script>
 

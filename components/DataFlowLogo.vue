@@ -12,6 +12,12 @@
           <stop offset="100%" stop-color="#0f0f0f" />
         </linearGradient>
       </defs>
+      <defs>
+        <radialGradient id="logoGradient" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+          <stop offset="0%" stop-color="#3a7bd5" />
+          <stop offset="100%" stop-color="#00d2ff" />
+        </radialGradient>
+      </defs>
 
       <!-- Lignes avec courbures de la gauche vers la droite -->
       <path
@@ -102,12 +108,12 @@
 
       <!-- Le logo -->
       <image
-        xlink:src="logoSrc"
-        x="370"
-        y="30"
-        width="60"
-        height="60"
+        href="@/assets/images/logo-ynnovate-removebg.png"
+        x="322"
+        y="-25"
         style="pointer-events: none"
+        class="logo-image"
+        preserveAspectRatio="xMidYMid meet"
       />
     </svg>
   </div>
@@ -193,4 +199,28 @@ circle {
   opacity: 0.9;
   will-change: transform, opacity;
 }
+
+.logo-bg {
+  filter: blur(8px);
+  mix-blend-mode: screen;
+  transition: all 0.5s ease;
+}
+
+.logo-image {
+  width: 150px;
+  height: 150px;
+  filter: drop-shadow(0 0 10px rgba(0, 210, 255, 0.5));
+
+}
+
+@keyframes gradientPulse {
+  0% { opacity: 0.6; transform: scale(0.95); }
+  50% { opacity: 0.9; transform: scale(1.05); }
+  100% { opacity: 0.6; transform: scale(0.95); }
+}
+
+.logo-bg {
+  animation: gradientPulse 6s ease-in-out infinite;
+}
+
 </style>

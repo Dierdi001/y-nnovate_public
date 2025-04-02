@@ -83,7 +83,7 @@ p {
   font-size: 1.2rem;
   font-weight: bold;
   color: white;
-  background: linear-gradient(45deg, #ff00ffd7, #6200ffd7);
+  background: linear-gradient(45deg, #5f035fd7, #1e2039);
   border-radius: 8px;
   text-decoration: none;
   transition: 0.3s;
