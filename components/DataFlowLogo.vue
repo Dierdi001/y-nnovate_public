@@ -13,7 +13,14 @@
         </linearGradient>
       </defs>
       <defs>
-        <radialGradient id="logoGradient" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+        <radialGradient
+          id="logoGradient"
+          cx="50%"
+          cy="50%"
+          r="50%"
+          fx="50%"
+          fy="50%"
+        >
           <stop offset="0%" stop-color="#3a7bd5" />
           <stop offset="100%" stop-color="#00d2ff" />
         </radialGradient>
@@ -124,26 +131,22 @@
 import { onMounted, ref } from "vue";
 import gsap from "gsap";
 import { MotionPathPlugin } from "gsap/all";
-// import { MotionPathPlugin } from "gsap/MotionPathPlugin";
-import ynnovateLogo from "@/assets/images/logo-ynnovate-removebg.png";
-
-
-gsap.registerPlugin(MotionPathPlugin);
+import { useNuxtApp } from "#app";
 
 export default {
   name: "DataFlowLogo",
-  props: {
-    logoSrc: {
-      type: String,
-      default: ynnovateLogo
-    }
-  },
   setup() {
     const points = Array.from({ length: 10 }, () => ref(null));
 
     onMounted(() => {
+      const { $gsap } = useNuxtApp(); // Récupère GSAP depuis le plugin
+      if (!$gsap) {
+        console.error("GSAP n'est pas injecté !");
+        return;
+      }
+
       for (let i = 0; i < 5; i++) {
-        gsap.to(points[i].value, {
+        $gsap.to(points[i].value, {
           duration: 5 + i,
           repeat: -1,
           ease: "power1.inOut",
@@ -156,9 +159,8 @@ export default {
         });
       }
 
-      // Animation des points vers la gauche
       for (let i = 5; i < 10; i++) {
-        gsap.to(points[i].value, {
+        $gsap.to(points[i].value, {
           duration: 5 + (i - 5),
           repeat: -1,
           ease: "power1.inOut",
@@ -212,17 +214,24 @@ circle {
   width: 150px;
   height: 150px;
   filter: drop-shadow(0 0 10px #ff66fa4b);
-
 }
 
 @keyframes gradientPulse {
-  0% { opacity: 0.6; transform: scale(0.95); }
-  50% { opacity: 0.9; transform: scale(1.05); }
-  100% { opacity: 0.6; transform: scale(0.95); }
+  0% {
+    opacity: 0.6;
+    transform: scale(0.95);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.05);
+  }
+  100% {
+    opacity: 0.6;
+    transform: scale(0.95);
+  }
 }
 
 .logo-bg {
   animation: gradientPulse 6s ease-in-out infinite;
 }
-
 </style>

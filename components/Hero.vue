@@ -39,9 +39,8 @@
 
 <script setup>
 import { ref, onMounted } from "vue";
-import gsap from "gsap";
 import DataFlowLogo from "@/components/DataFlowLogo.vue";
-import "gsap/ScrollTrigger"; // Import direct
+import { useNuxtApp } from "#app";
 
 const dataFlowContainer = ref(null);
 const hero = ref(null);
@@ -63,32 +62,36 @@ const squares = ref([
   { x: 75, y: 70, color: "#595959", animationDelay: generateRandomDelay() },
 ]);
 
-onMounted(() => {
-  if (dataFlowContainer.value) {
-    gsap.to(dataFlowContainer.value, {
-      opacity: 1,
-      y: -20,
-      duration: 0.5,
-      scrollTrigger: {
-        trigger: dataFlowContainer.value,
-        start: "top 60%",
-        end: "top 80%",
-        scrub: true,
-        onLeave: () => {
-          gsap.to(hero.value, {
-            background: "transparent",
-            duration: 0.5,
-          });
-          squares.value.forEach((square) => {
-            square.color = "#1b1a45";
-          });
+onMounted(async () => {
+  if (process.client) {
+    const nuxtApp = useNuxtApp();
+    const gsap = nuxtApp.$gsap;
+
+    if (dataFlowContainer.value) {
+      gsap.to(dataFlowContainer.value, {
+        opacity: 1,
+        y: -20,
+        duration: 0.5,
+        scrollTrigger: {
+          trigger: dataFlowContainer.value,
+          start: "top 60%",
+          end: "top 80%",
+          scrub: true,
+          onLeave: () => {
+            gsap.to(hero.value, {
+              background: "transparent",
+              duration: 0.5,
+            });
+            squares.value.forEach((square) => {
+              square.color = "#4f246f";
+            });
+          },
         },
-      },
-    });
+      });
+    }
   }
 });
 </script>
-
 
 <style scoped>
 .hero {
