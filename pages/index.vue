@@ -3,14 +3,12 @@ import UiIndex from "~/components/ui/index.vue";
 
 // Définir les métadonnées de la page
 definePageMeta({
-  layout: 'default',
+  layout: "default",
 });
 </script>
 
 <template>
-  <div>
+  <div class="index">
     <UiIndex />
-     <!-- <h1>Index</h1> -->
   </div>
 </template>
-

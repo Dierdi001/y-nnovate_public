@@ -2,7 +2,7 @@
   <div class="index">
     <Hero />
     <OurServices />
-    <SloganSection/>
+    <SloganSection />
     <PartnerGrid />
     <TestimonialSection />
     <ctaSection />
@@ -18,13 +18,13 @@ import SloganSection from "~/components/SloganSection.vue";
 </script>
 <style scoped>
 .index {
-    background: radial-gradient(circle at bottom center,  
-    #101010 40%, 
-  #17131e 55%, 
-  #181223 70%, 
-  #1e2039 85%, 
-  #0a090d 100%
+  background: radial-gradient(
+    circle at bottom center,
+    #101010 40%,
+    #17131e 55%,
+    #181223 70%,
+    #1e2039 85%,
+    #0a090d 100%
   );
-
 }
 </style>
