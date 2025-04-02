@@ -235,4 +235,87 @@ export default {
     filter: blur(15px);
   }
 }
+
+@media (max-width: 1024px) {
+  .service-box {
+    padding: 1.5rem;
+  }
+
+  .logo-card {
+    width: 80px;
+    height: 80px;
+  }
+
+  .logo-card img {
+    width: 45px;
+    height: 45px;
+  }
+
+  .title {
+    font-size: 1.6rem;
+  }
+
+  .desc-text {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .service-box {
+    padding: 1rem;
+  }
+
+  .logo-card {
+    width: 70px;
+    height: 70px;
+  }
+
+  .logo-card img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .title {
+    font-size: 1.4rem;
+  }
+
+  .desc-text {
+    font-size: 0.85rem;
+  }
+
+  .decor-card {
+    opacity: 0.4;
+    filter: blur(12px);
+  }
+}
+
+@media (max-width: 480px) {
+  .service-box {
+    padding: 0.8rem;
+  }
+
+  .logo-card {
+    width: 40px;
+    height: 40px;
+  }
+
+  .logo-card img {
+    width: 30px;
+    height: 30px;
+  }
+
+  .title {
+    font-size: 1.2rem;
+  }
+
+  .desc-text {
+    font-size: 0.8rem;
+  }
+
+  .decor-card {
+    opacity: 0.3;
+    filter: blur(10px);
+  }
+}
+
 </style>

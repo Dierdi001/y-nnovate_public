@@ -2,13 +2,15 @@
   <section ref="hero" class="hero" :style="heroBackgroundStyle">
     <div class="container text-center relative">
       <div
-        class="text-center flex flex-col justify-center items-center h-[75vh]"
+        class="text-center flex flex-col justify-center items-center h-[60vh]"
       >
-        <h1 class="text-7xl font-medium gradient-text font-manrope">
+        <h1
+          class="text-5xl md:text-6xl lg:text-7xl font-medium gradient-text font-manrope"
+        >
           Vos défis, <br />
           notre expertise.
         </h1>
-        <p class="mt-4 text-gray-400 text-xl">
+        <p class="mt-4 text-gray-400 text-base md:text-lg lg:text-xl">
           Nous trouvons des solutions sur mesure pour propulser votre succès.
         </p>
       </div>
@@ -41,6 +43,7 @@ import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import DataFlowLogo from "@/components/DataFlowLogo.vue";
 
+
 // Enregistrement de ScrollTrigger
 gsap.registerPlugin(ScrollTrigger);
 
@@ -51,7 +54,7 @@ const heroBackgroundStyle = ref({
 });
 
 const generateRandomDelay = () => {
-  return `${(Math.random() * 2).toFixed(2)}s`; 
+  return `${(Math.random() * 2).toFixed(2)}s`;
 };
 
 const squares = ref([
@@ -66,13 +69,12 @@ const squares = ref([
   { x: 75, y: 70, color: "#595959", animationDelay: generateRandomDelay() },
 ]);
 
-
 onMounted(() => {
   if (dataFlowContainer.value) {
     gsap.to(dataFlowContainer.value, {
       opacity: 1,
       y: -20,
-      duration: 1,
+      duration: 0.5,
       scrollTrigger: {
         trigger: dataFlowContainer.value,
         start: "top 60%",
@@ -81,10 +83,10 @@ onMounted(() => {
         onLeave: () => {
           gsap.to(hero.value, {
             background: "transparent",
-            duration: 1,
+            duration: 0.5,
           });
           squares.value.forEach((square) => {
-            square.color = "#572ccc";
+            square.color = "#1b1a45";
           });
         },
       },
@@ -107,7 +109,7 @@ onMounted(() => {
   opacity: 0.8;
   transition: background 2s ease-in-out, box-shadow 2s ease-in-out;
   animation: float 3s infinite alternate ease-in-out;
-  animation-delay: var(--animation-delay); 
+  animation-delay: var(--animation-delay);
 }
 
 @keyframes float {

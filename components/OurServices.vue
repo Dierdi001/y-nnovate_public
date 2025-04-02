@@ -1,6 +1,6 @@
 <template>
   <section class="ourServices-section h-full mt-24">
-    <h3 class="section-title">Nos Services</h3>
+    <h3 class="section-title text-5xl md:text-6xl lg:text-7xl">Nos Services</h3>
     <div class="grid-row row-1 mt-8">
       <ServiceMarketing 
         class="box box-1"  
@@ -66,7 +66,6 @@ export default {
 }
 
 .section-title {
-  font-size: 3.2rem;
   font-weight: medium;
   margin-bottom: 8px;
   text-align: center;
@@ -259,4 +258,17 @@ export default {
     --angle: 360deg;
   }
 }
+
+@media (max-width: 1024px) {
+  .row-1,
+  .row-2 {
+    grid-template-columns: 1fr; /* Une seule colonne */
+  }
+
+  .box {
+    width: 100%; /* Prend toute la largeur */
+    height: auto; /* Ajuste la hauteur selon le contenu */
+  }
+}
+
 </style>

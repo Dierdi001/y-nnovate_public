@@ -1,5 +1,14 @@
 <template>
   <div class="sponsors-grid mt-36">
+    <h2 class="section-title">Nos Solutions</h2>
+    <div class="grid">
+      <PartnerCard
+        v-for="sponsor in formattedPartners"
+        :key="sponsor.name || Math.random()"
+        :sponsor="sponsor"
+        :empty="!sponsor.name"
+      />
+    </div>
     <h2 class="section-title">Nous ont fait confiance</h2>
     <div class="grid">
       <PartnerCard
@@ -79,6 +88,54 @@ const formattedPlatinumSponsors = computed(() => fillEmptyClientsSlots([...plati
   justify-content: center;
   color: rgba(255, 255, 255, 0.5);
   
+}
+
+@media (max-width: 1024px) {
+  .section-title {
+    font-size: 2rem;
+    width: 90%;
+  }
+
+  .grid {
+    width: 90%;
+    gap: 8px;
+  }
+}
+
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 1.8rem;
+    padding: 6px;
+    width: 95%;
+  }
+
+  .grid {
+    flex-wrap: wrap;
+    width: 95%;
+    gap: 6px;
+  }
+
+  .partner-card {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-title {
+    font-size: 1.5rem;
+    padding: 5px;
+    margin-bottom: 15px;
+  }
+
+  .grid {
+    gap: 4px;
+  }
+
+  .partner-card {
+    width: 100px;
+    height: 100px;
+  }
 }
 
 </style>

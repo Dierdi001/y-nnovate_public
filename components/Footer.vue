@@ -1,6 +1,6 @@
 <template>
     <footer class="bg-dark text-white text-center py-4">
-      <p>&copy; 2025 MonSite. Tous droits réservés.</p>
+      <p>&copy; 2025 Y-nnovate. Tous droits réservés.</p>
     </footer>
   </template>
   

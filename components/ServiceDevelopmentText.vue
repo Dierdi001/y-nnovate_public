@@ -117,4 +117,86 @@ export default {
   margin-top: 5px;
   display: block;
 }
+
+@media (max-width: 1024px) {
+  .service-box {
+    flex-direction: column;
+    text-align: center;
+    height: auto;
+    padding: 1.5rem;
+  }
+
+  .text-content {
+    max-width: 100%;
+  }
+
+  .title {
+    font-size: 2.5rem;
+    text-align: center;
+  }
+
+  .description {
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  .smartphone {
+    margin-top: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .service-box {
+    padding: 1rem;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .description {
+    font-size: 0.9rem;
+  }
+
+  .smartphone {
+    width: 100px;
+    height: 180px;
+  }
+
+  .logo {
+    font-size: 20px;
+  }
+
+  .label {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .service-box {
+    padding: 0.5rem;
+  }
+
+  .title {
+    font-size: 1.8rem;
+  }
+
+  .description {
+    font-size: 0.8rem;
+  }
+
+  .smartphone {
+    width: 90px;
+    height: 160px;
+  }
+
+  .logo {
+    font-size: 18px;
+  }
+
+  .label {
+    font-size: 10px;
+  }
+}
+
 </style>
