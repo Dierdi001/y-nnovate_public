@@ -1,5 +1,5 @@
 <template>
-  <div class="svg-container flex items-center justify-center max-w-full">
+  <div class="svg-container flex items-center justify-center max-w-screen">
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 800 100"

@@ -1,6 +1,6 @@
 <template>
   <section ref="hero" class="hero" :style="heroBackgroundStyle">
-    <div class="container text-center relative">
+    <div class="containerHero text-center relative px-20 mx-20">
       <div
         class="text-center flex flex-col justify-center items-center h-[60vh]"
       >
@@ -96,6 +96,7 @@ onMounted(async () => {
 <style scoped>
 .hero {
   @apply flex flex-col items-center justify-center;
+  width: 100vw;
   transition: background 1s ease-in-out;
 }
 
@@ -117,18 +118,6 @@ onMounted(async () => {
   100% {
     transform: translateY(10px);
   }
-}
-
-.container {
-  @apply max-w-screen-xl mx-auto px-6;
-}
-
-.btn-gradient {
-  @apply px-6 py-3 text-white font-bold bg-gradient-to-r from-purple-500 to-indigo-500 rounded-lg shadow-lg transition-transform transform hover:scale-105;
-}
-
-.btn-outline {
-  @apply px-6 py-3 text-gray-300 font-bold border border-gray-500 rounded-lg transition-transform transform hover:scale-105;
 }
 
 .gradient-text {

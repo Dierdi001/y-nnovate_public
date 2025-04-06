@@ -26,5 +26,6 @@ import SloganSection from "~/components/SloganSection.vue";
     #1e2039 85%,
     #0a090d 100%
   );
+  width: 100vw;
 }
 </style>
