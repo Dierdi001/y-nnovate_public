@@ -27,7 +27,9 @@
 
     <!-- Titre et Paragraphe -->
     <div class="service-description">
-      <h2> Optimisez les performances de votre site avec un audit complet pour améliorer la réactivité et l'expérience utilisateur </h2>
+      <h2>Auditez et optimisez votre site pour une réactivité et une expérience utilisateur accrues.
+
+</h2>
     </div>
   </div>
 </template>

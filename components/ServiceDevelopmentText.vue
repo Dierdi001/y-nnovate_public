@@ -174,20 +174,23 @@ export default {
 
 @media (max-width: 480px) {
   .service-box {
-    padding: 0.5rem;
+    padding: 1rem;
   }
 
   .title {
-    font-size: 1.8rem;
+    font-size: 1.1rem;
+    text-align: left;
   }
 
   .description {
     font-size: 0.8rem;
+    text-align: left;
   }
 
   .smartphone {
     width: 90px;
     height: 160px;
+    display: none;
   }
 
   .logo {

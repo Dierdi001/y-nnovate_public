@@ -113,16 +113,15 @@
       <circle ref="point9" cx="800" cy="100" r="1.5" fill="white" />
       <circle ref="point10" cx="800" cy="50" r="1.5" fill="white" />
 
-      <!-- Le logo -->
-      <image
-        href="@/assets/images/logo-ynnovate-removebg.png"
-        x="322"
-        y="-25"
-        style="pointer-events: none"
-        class="logo-image"
-        preserveAspectRatio="xMidYMid meet"
-        fill="url(#logoGradient)"
-      />
+
+      <foreignObject x="340" y="-10" width="120" height="120">
+        <div xmlns="http://www.w3.org/1999/xhtml" class="logo-wrapper">
+          <img
+            src="@/assets/images/logo-ynnovate-removebg.png"
+            class="real-logo"
+          />
+        </div>
+      </foreignObject>
     </svg>
   </div>
 </template>
@@ -197,6 +196,23 @@ export default {
   width: 100%;
   display: flex;
   justify-content: center;
+}
+
+.logo-wrapper {
+  background: rgb(33, 31, 53);
+  border-radius: 5px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0.5px solid rgba(55, 51, 87, 0.478);
+}
+
+.real-logo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 circle {

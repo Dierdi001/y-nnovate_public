@@ -200,21 +200,21 @@ export default {
   }
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
   .logo-grid {
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-areas:
-      "logo1 logo1"
-      "logo2 logo3"
-      "logo4 logo5"
-      "logo6 logo6"
-      "desc desc";
+    grid-template-columns: repeat(5, 2fr);
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: 10px;
+    width: 100%;
+    padding-bottom: 10px;
+    align-items: center;
   }
 
   .logo-card {
-    width: 80px;
-    height: 75px;
+    flex: 0 0 auto;
+    width: 70px;
+    height: 70px;
   }
 
   .logo-card img {
@@ -222,19 +222,26 @@ export default {
     height: 40px;
   }
 
+  .description {
+    flex: 0 0 100%;
+  }
+
   .title {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
+    text-align: left;
   }
 
   .desc-text {
-    font-size: 1rem;
+    font-size: 0.85rem;
+    text-align: right;
   }
 
   .decor-card {
-    opacity: 0.5;
-    filter: blur(15px);
+    opacity: 0.4;
+    filter: blur(12px);
   }
 }
+
 
 @media (max-width: 1024px) {
   .service-box {
