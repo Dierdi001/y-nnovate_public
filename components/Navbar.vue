@@ -39,9 +39,7 @@ const toggleMenu = () => {
 };
 
 const menuItems = ref([
-  { name: 'Home', link: '/' },
-  { name: 'Services', link: '/' },
-  { name: 'Contact', link: '/' }
+  { name: 'Accueil', link: '/' },
 ]);
 </script>
 

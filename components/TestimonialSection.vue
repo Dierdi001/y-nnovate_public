@@ -1,7 +1,7 @@
 <template>
   <section class="py-16 testimonial-section">
     <div class="max-w-5xl mx-auto text-center">
-      <h2 class="title text-3xl font-bold">Ce que pensent nos clients</h2>
+      <h2 class="title text-3xl md:text-6xl lg:text-7xl font-bold">Ce que pensent nos clients</h2>
       <p class="text-gray-400 mt-2">
         Ne nous croyez pas sur parole - écoutez ce que les clients du "Y" ont à dire.
       </p>
@@ -53,7 +53,7 @@ export default {
 <style scoped>
 .testimonial-section {
   justify-items: center;
-  padding: 16px;
+  padding: 25px;
 }
 
 .title {
