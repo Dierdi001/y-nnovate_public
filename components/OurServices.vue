@@ -1,5 +1,5 @@
 <template>
-  <section class="ourServices-section h-full mt-24">
+  <section class="ourServices-section h-full mt-12">
     <h3 class="section-title text-5xl md:text-6xl lg:text-7xl">Nos Services</h3>
     <div class="grid-row row-1 mt-8">
       <ServiceMarketing 

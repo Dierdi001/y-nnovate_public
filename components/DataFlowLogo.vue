@@ -31,35 +31,35 @@
         id="path1"
         d="M0,-90 C70,55 80,40 400,55"
         stroke="url(#gradientLine)"
-        stroke-width="0.8"
+        stroke-width="2"
         fill="none"
       />
       <path
         id="path2"
         d="M0,50 C25,50 55,50 400,55"
         stroke="url(#gradientLine)"
-        stroke-width="0.8"
+        stroke-width="2"
         fill="none"
       />
       <path
         id="path3"
         d="M0,200 C70,30 50,70 400,55"
         stroke="url(#gradientLine)"
-        stroke-width="0.8"
+        stroke-width="2"
         fill="none"
       />
       <path
         id="path4"
         d="M0,350 C80,50 50,90 400,55"
         stroke="url(#gradientLine)"
-        stroke-width="0.8"
+        stroke-width="2"
         fill="none"
       />
       <path
         id="path5"
         d="M0,-290 C90,35 80,40 400,55"
         stroke="url(#gradientLine)"
-        stroke-width="0.8"
+        stroke-width="2"
         fill="none"
       />
 
@@ -68,35 +68,35 @@
         id="path6"
         d="M800,-90 C730,55 720,40 400,55"
         stroke="url(#gradientLine)"
-        stroke-width="0.8"
+        stroke-width="2"
         fill="none"
       />
       <path
         id="path7"
         d="M800,50 C775,50 745,50 400,55"
         stroke="url(#gradientLine)"
-        stroke-width="0.8"
+        stroke-width="2"
         fill="none"
       />
       <path
         id="path8"
         d="M800,200 C730,30 750,70 400,55"
         stroke="url(#gradientLine)"
-        stroke-width="0.8"
+        stroke-width="2"
         fill="none"
       />
       <path
         id="path9"
         d="M800,350 C720,50 750,90 400,55"
         stroke="url(#gradientLine)"
-        stroke-width="0.8"
+        stroke-width="2"
         fill="none"
       />
       <path
         id="path10"
         d="M800,-290 C710,35 720,40 400,55"
         stroke="url(#gradientLine)"
-        stroke-width="0.8"
+        stroke-width="2"
         fill="none"
       />
 
@@ -216,6 +216,7 @@ circle {
   filter: drop-shadow(0 0 10px #ff66fa4b);
 }
 
+/* Animation du logo (conserve) */
 @keyframes gradientPulse {
   0% {
     opacity: 0.6;
@@ -233,5 +234,28 @@ circle {
 
 .logo-bg {
   animation: gradientPulse 6s ease-in-out infinite;
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+  .data-flow-logo {
+    height: 35vh; /* Réduit un peu sur tablette */
+  }
+
+  .logo-image {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+@media (max-width: 640px) {
+  .data-flow-logo {
+    height: 25vh; /* Sur mobile : réduit encore */
+  }
+
+  .logo-image {
+    width: 100px;
+    height: 100px;
+  }
 }
 </style>

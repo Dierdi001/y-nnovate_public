@@ -22,29 +22,61 @@
 </template>
 
 <script setup>
-import { computed } from 'vue'
+import { computed, ref, onMounted, onBeforeUnmount } from 'vue'
 import PartnerCard from '@/components/PartnerCard.vue'
 import esgisLogo from '@/assets/images/partner/esgis-logo.png';
 import ynnovateLogo from '@/assets/images/logo-ynnovate-removebg.png';
 
 const partners = [
   { name: 'ESGIS', logo: esgisLogo, url: 'https://esgis.org' },
-]
+];
+const formattedPartners = computed(() => fillEmptyPartnerSlots([...partners]))
+const fillEmptyPartnerSlots = (arr, totalSlots = 6) => {
+  return arr.concat(Array(Math.max(0, totalSlots - arr.length)).fill({ name: '', logo: '', url: '' }))
+}
 
 const platinumSponsors = [
   { name: 'Y-nnovate', logo: ynnovateLogo, url: 'https://teste.proceduralworldlab.com/' },
-]
+  { name: 'Y-nnovate', logo: ynnovateLogo, url: 'https://teste.proceduralworldlab.com/' },
+  { name: 'Y-nnovate', logo: ynnovateLogo, url: 'https://teste.proceduralworldlab.com/' },
+];
 
-// Fonction pour s'assurer qu'il y a toujours 4 cartes visibles
-const fillEmptyPartnerSlots = (arr, totalSlots = 4) => {
-  return arr.concat(Array(Math.max(0, totalSlots - arr.length)).fill({ name: '', logo: '', url: '' }))
-}
-const fillEmptyClientsSlots = (arr, totalSlots = 24) => {
-  return arr.concat(Array(Math.max(0, totalSlots - arr.length)).fill({ name: '', logo: '', url: '' }))
-}
+const sponsorsPerRow = 6;
 
-const formattedPartners = computed(() => fillEmptyPartnerSlots([...partners]))
-const formattedPlatinumSponsors = computed(() => fillEmptyClientsSlots([...platinumSponsors]))
+const formattedPlatinumSponsors = computed(() => {
+  const sponsors = [...platinumSponsors];
+  const remainder = sponsors.length % sponsorsPerRow;
+  
+  if (remainder !== 0) {
+    const slotsToFill = sponsorsPerRow - remainder;
+    for (let i = 0; i < slotsToFill; i++) {
+      sponsors.push({ name: '', logo: '', url: '' });
+    }
+  }
+  
+  return sponsors;
+});
+
+const isMobile = ref(false);
+
+const handleResize = () => {
+  if (typeof window !== 'undefined') {
+    isMobile.value = window.innerWidth <= 768;
+  }
+};
+
+onMounted(() => {
+  handleResize(); // Appelle une première fois au montage
+  if (typeof window !== 'undefined') {
+    window.addEventListener('resize', handleResize);
+  }
+});
+
+onBeforeUnmount(() => {
+  if (typeof window !== 'undefined') {
+    window.removeEventListener('resize', handleResize);
+  }
+});
 </script>
 
 <style scoped>
@@ -59,7 +91,7 @@ const formattedPlatinumSponsors = computed(() => fillEmptyClientsSlots([...plati
 .section-title {
   font-size: 2.5rem;
   margin-bottom: 20px;
-  width: 80%;
+  width: 70%;
   border: 1px solid rgb(56, 56, 56);
   padding: 8px;
   border-radius: 10px;
@@ -112,12 +144,13 @@ const formattedPlatinumSponsors = computed(() => fillEmptyClientsSlots([...plati
   .grid {
     flex-wrap: wrap;
     width: 95%;
-    gap: 6px;
+    gap: 10px;
   }
 
   .partner-card {
     width: 120px;
     height: 120px;
+    margin: 10px
   }
 }
 
@@ -129,7 +162,7 @@ const formattedPlatinumSponsors = computed(() => fillEmptyClientsSlots([...plati
   }
 
   .grid {
-    gap: 4px;
+    gap: 10px;
   }
 
   .partner-card {

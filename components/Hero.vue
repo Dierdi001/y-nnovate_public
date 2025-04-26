@@ -16,7 +16,7 @@
       </div>
 
       <!-- Composant DataFlowLogo (Visible au scroll) -->
-      <div ref="dataFlowContainer" class="opacity-1 mb-5">
+      <div ref="dataFlowContainer" class="opacity-1 mb-3">
         <DataFlowLogo />
       </div>
 
@@ -98,6 +98,15 @@ onMounted(async () => {
   @apply flex flex-col items-center justify-center;
   width: 100vw;
   transition: background 1s ease-in-out;
+  padding-left: 5vw;
+  padding-right: 5vw;
+}
+
+.containerHero {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  height: 100vh;
 }
 
 .glowing-square {
@@ -124,5 +133,47 @@ onMounted(async () => {
   background: linear-gradient(to bottom, #ededed, #737374);
   -webkit-background-clip: text;
   color: transparent;
+}
+
+/* RESPONSIVE PART */
+@media (max-width: 768px) {
+  .hero {
+    padding-left: 4vw;
+    padding-right: 4vw;
+  }
+
+  .containerHero {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .glowing-square {
+    width: 15px;
+    height: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding-left: 3vw;
+    padding-right: 3vw;
+  }
+
+  .containerHero {
+    padding: 0 1rem;
+  }
+
+  h1 {
+    font-size: 2.5rem; /* Plus petit sur très petits écrans */
+  }
+
+  p {
+    font-size: 1rem;
+  }
+
+  .glowing-square {
+    width: 12px;
+    height: 12px;
+  }
 }
 </style>
