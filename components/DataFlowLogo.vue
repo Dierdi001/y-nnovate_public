@@ -199,7 +199,7 @@ export default {
 }
 
 .logo-wrapper {
-  background: rgb(33, 31, 53);
+  background: #0c0c0c;
   border-radius: 5px;
   width: 100%;
   height: 100%;
