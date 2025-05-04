@@ -23,7 +23,7 @@
         </div>
 
         <div class="code-container">
-          <div class="code-title">Du code écrit sur mesure</div>
+          <div class="code-title">Des applications et logiciels sur mesure</div>
           <div class="code-box">
             <pre class="code-line shimmer-effect">
       <code>
