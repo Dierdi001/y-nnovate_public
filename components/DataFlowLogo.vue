@@ -1,5 +1,5 @@
 <template>
-  <div class="svg-container flex items-center justify-center max-w-screen">
+  <div class="svg-container flex items-center justify-center w-4/5 mx-auto">
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 800 100"
@@ -113,7 +113,6 @@
       <circle ref="point9" cx="800" cy="100" r="1.5" fill="white" />
       <circle ref="point10" cx="800" cy="50" r="1.5" fill="white" />
 
-
       <foreignObject x="340" y="-10" width="120" height="120">
         <div xmlns="http://www.w3.org/1999/xhtml" class="logo-wrapper">
           <img
@@ -199,7 +198,7 @@ export default {
 }
 
 .logo-wrapper {
-  background: #0c0c0c;
+  background: #191528;
   border-radius: 5px;
   width: 100%;
   height: 100%;

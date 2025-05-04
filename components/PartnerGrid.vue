@@ -1,44 +1,37 @@
 <template>
-  <div class="sponsors-grid mt-36">
-    <h2 class="section-title">Nos Solutions</h2>
+  <div class="sponsors-grid mt-8">
+    <h2
+      class="section-title"
+      :class="{ 'animated-title': isVisible }"
+    >
+      Nous avons travaillé avec :
+    </h2>
     <div class="grid">
       <PartnerCard
-        v-for="sponsor in formattedPartners"
-        :key="sponsor.name || Math.random()"
+        v-for="(sponsor, index) in formattedPlatinumSponsors"
+        :key="sponsor.name || index"
         :sponsor="sponsor"
         :empty="!sponsor.name"
-      />
-    </div>
-    <h2 class="section-title">Nous ont fait confiance</h2>
-    <div class="grid">
-      <PartnerCard
-        v-for="sponsor in formattedPlatinumSponsors"
-        :key="sponsor.name || Math.random()"
-        :sponsor="sponsor"
-        :empty="!sponsor.name"
+        :class="{ 'animated-card': isVisible }"
+        :style="isVisible ? { animationDelay: `${index * 0.1}s` } : {}"
       />
     </div>
   </div>
 </template>
 
 <script setup>
-import { computed, ref, onMounted, onBeforeUnmount } from 'vue'
-import PartnerCard from '@/components/PartnerCard.vue'
-import esgisLogo from '@/assets/images/partner/esgis-logo.png';
-import ynnovateLogo from '@/assets/images/logo-ynnovate-removebg.png';
-
-const partners = [
-  { name: 'ESGIS', logo: esgisLogo, url: 'https://esgis.org' },
-];
-const formattedPartners = computed(() => fillEmptyPartnerSlots([...partners]))
-const fillEmptyPartnerSlots = (arr, totalSlots = 6) => {
-  return arr.concat(Array(Math.max(0, totalSlots - arr.length)).fill({ name: '', logo: '', url: '' }))
-}
+import { computed, ref, onMounted, onBeforeUnmount } from "vue";
+import PartnerCard from "@/components/PartnerCard.vue";
+import lomeXpressLogo from "@/assets/images/partner/LomeXpress-removebg.png";
+import PwlLogo from "@/assets/images/partner/pwl-logo.png";
 
 const platinumSponsors = [
-  { name: 'Y-nnovate', logo: ynnovateLogo, url: 'https://teste.proceduralworldlab.com/' },
-  { name: 'Y-nnovate', logo: ynnovateLogo, url: 'https://teste.proceduralworldlab.com/' },
-  { name: 'Y-nnovate', logo: ynnovateLogo, url: 'https://teste.proceduralworldlab.com/' },
+  { name: "LomeXpress", logo: lomeXpressLogo, url: "https://lomeexpresservice.com" },
+  {
+    name: "Procedural World Lab",
+    logo: PwlLogo,
+    url: "https://teste.proceduralworldlab.com/",
+  },
 ];
 
 const sponsorsPerRow = 6;
@@ -46,37 +39,38 @@ const sponsorsPerRow = 6;
 const formattedPlatinumSponsors = computed(() => {
   const sponsors = [...platinumSponsors];
   const remainder = sponsors.length % sponsorsPerRow;
-  
+
   if (remainder !== 0) {
     const slotsToFill = sponsorsPerRow - remainder;
     for (let i = 0; i < slotsToFill; i++) {
-      sponsors.push({ name: '', logo: '', url: '' });
+      sponsors.push({ name: "", logo: "", url: "" });
     }
   }
-  
+
   return sponsors;
 });
 
-const isMobile = ref(false);
 
-const handleResize = () => {
-  if (typeof window !== 'undefined') {
-    isMobile.value = window.innerWidth <= 768;
-  }
-};
+const container = ref(null);
+const isVisible = ref(false);
 
 onMounted(() => {
-  handleResize(); // Appelle une première fois au montage
-  if (typeof window !== 'undefined') {
-    window.addEventListener('resize', handleResize);
+  if (typeof IntersectionObserver !== "undefined" && container.value) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            isVisible.value = true;
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+    observer.observe(container.value);
   }
 });
 
-onBeforeUnmount(() => {
-  if (typeof window !== 'undefined') {
-    window.removeEventListener('resize', handleResize);
-  }
-});
 </script>
 
 <style scoped>
@@ -99,6 +93,25 @@ onBeforeUnmount(() => {
   background: linear-gradient(to bottom, #ededed, #737374);
   -webkit-background-clip: text;
   color: transparent;
+  opacity: 1;
+}
+
+/* Animation du titre */
+@keyframes fade-slide-up-title {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animation pour le titre */
+.animated-title {
+  animation: fade-slide-up-title 1s ease-out forwards;
+  opacity: 1 !important; /* Assurez-vous que l'élément est visible après l'animation */
 }
 
 .grid {
@@ -110,7 +123,25 @@ onBeforeUnmount(() => {
   width: 80%;
 }
 
-/* Style spécifique aux cartes vides */
+/* Animation pour les cartes */
+@keyframes fade-slide-up {
+  0% {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Application de l'animation sur les cartes */
+.animated-card {
+  animation: fade-slide-up 0.6s ease-out forwards;
+  opacity: 0;
+}
+
+/* Cartes vides */
 .partner-card.empty {
   background: rgba(255, 255, 255, 0.1);
   border: 1px dashed rgba(255, 255, 255, 0.5);
@@ -119,7 +150,6 @@ onBeforeUnmount(() => {
   align-items: center;
   justify-content: center;
   color: rgba(255, 255, 255, 0.5);
-  
 }
 
 @media (max-width: 1024px) {
@@ -150,7 +180,7 @@ onBeforeUnmount(() => {
   .partner-card {
     width: 120px;
     height: 120px;
-    margin: 10px
+    margin: 10px;
   }
 }
 
@@ -170,5 +200,4 @@ onBeforeUnmount(() => {
     height: 100px;
   }
 }
-
 </style>

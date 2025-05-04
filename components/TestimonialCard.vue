@@ -10,7 +10,7 @@
       />
       <div>
         <h3 class="text-white font-semibold">{{ testimonial.name }}</h3>
-        <p class="text-gray-400 text-sm">@{{ testimonial.username }}</p>
+        <p class="text-gray-400 text-sm">{{ testimonial.memberOf }}</p>
       </div>
     </div>
     <p class="text-gray-300 mt-4">{{ testimonial.message }}</p>
@@ -25,9 +25,9 @@ export default {
 };
 </script>
 <style scoped>
-.testimonial-card{
-    background: #2222224c;
-    border-radius: 10px;
-    border: 1px solid rgb(56, 56, 56);
+.testimonial-card {
+  background: #2222224c;
+  border-radius: 10px;
+  border: 1px solid rgb(56, 56, 56);
 }
 </style>

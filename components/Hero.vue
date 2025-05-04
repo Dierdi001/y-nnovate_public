@@ -1,112 +1,92 @@
 <template>
-  <section ref="hero" class="hero" :style="heroBackgroundStyle">
-    <div class="containerHero text-center relative px-20 mx-20">
-      <div
-        class="text-center flex flex-col justify-center items-center h-[60vh]"
-      >
+  <section ref="hero" class="hero relative" aria-label="Introduction de l'agence">
+    <!-- Couche semi-transparente -->
+    <div class="overlay absolute inset-0 z-10"></div>
+
+    <!-- Contenu au-dessus de l’overlay -->
+    <div class="containerHero text-center relative px-6 md:px-20 mx-auto z-20">
+      <div class="flex flex-col justify-center items-center h-[60vh] space-y-7">
         <h1
-          class="text-5xl md:text-6xl lg:text-7xl font-medium gradient-text font-manrope"
+          class="text-4xl md:text-5xl lg:text-6xl font-bold gradient-text font-manrope leading-tight"
         >
-          Vos défis, <br />
-          notre expertise.
+          Accélérez votre croissance avec nos solutions en développement et en marketing digital.
         </h1>
-        <p class="mt-4 text-gray-400 text-base md:text-lg lg:text-xl">
-          Nous trouvons des solutions sur mesure pour propulser votre succès.
+
+        <p class="text-gray-200 text-base md:text-lg max-w-xl">
+          Nous accompagnons votre transformation digitale avec des services sur mesure, création d’applications performantes, stratégies marketing ciblées et accompagnement technologique de haut niveau.
         </p>
-      </div>
 
-      <!-- Composant DataFlowLogo (Visible au scroll) -->
-      <div ref="dataFlowContainer" class="opacity-1 mb-3">
-        <DataFlowLogo />
+        <button class="cta-btn mt-4">Découvrir nos services</button>
       </div>
-
-      <!-- Carrés luminescents -->
-      <div
-        v-for="(square, index) in squares"
-        :key="index"
-        class="glowing-square"
-        :style="{
-          top: square.y + 'vh',
-          left: square.x + 'vw',
-          background: square.color,
-          boxShadow: `0px 0px 15px 5px ${square.color}`,
-          '--animation-delay': square.animationDelay,
-        }"
-      />
     </div>
+
+    <!-- Carrés luminescents -->
+    <div
+      v-for="(square, index) in squares"
+      :key="index"
+      class="glowing-square z-30"
+      :style="{
+        top: square.y + 'vh',
+        left: square.x + 'vw',
+        background: square.color,
+        boxShadow: `0px 0px 15px 5px ${square.color}`,
+        '--animation-delay': square.animationDelay,
+      }"
+    />
   </section>
 </template>
 
+
 <script setup>
-import { ref, onMounted } from "vue";
-import DataFlowLogo from "@/components/DataFlowLogo.vue";
-import { useNuxtApp } from "#app";
+import { ref } from "vue";
+import teamDev from "../assets/images/illustrations/team-dev-3.jpg";
+import marketing from "../assets/images/illustrations/marketing.jpg";
+import audit from "../assets/images/illustrations/audit.jpg";
 
-const dataFlowContainer = ref(null);
 const hero = ref(null);
-const heroBackgroundStyle = ref({
-  background: "radial-gradient(circle, #0d0d0d, #000)",
-});
 
-const generateRandomDelay = () => `${(Math.random() * 2).toFixed(2)}s`;
+const generateRandomDelay = () => `${(Math.random() * 5).toFixed(5)}s`;
 
 const squares = ref([
-  { x: 0, y: 20, color: "#595959", animationDelay: generateRandomDelay() },
-  { x: 10, y: 50, color: "#595959", animationDelay: generateRandomDelay() },
-  { x: 50, y: 30, color: "#595959", animationDelay: generateRandomDelay() },
-  { x: 70, y: 60, color: "#595959", animationDelay: generateRandomDelay() },
-  { x: 75, y: 60, color: "#595959", animationDelay: generateRandomDelay() },
-  { x: 20, y: 80, color: "#595959", animationDelay: generateRandomDelay() },
-  { x: 40, y: 70, color: "#595959", animationDelay: generateRandomDelay() },
-  { x: 80, y: 40, color: "#595959", animationDelay: generateRandomDelay() },
-  { x: 75, y: 70, color: "#595959", animationDelay: generateRandomDelay() },
+  { x: 0, y: 20, color: "#4f246f", animationDelay: generateRandomDelay() },
+  { x: 5, y: 30, color: "#4f246f", animationDelay: generateRandomDelay() },
+  { x: 50, y: 30, color: "#4f246f", animationDelay: generateRandomDelay() },
+  { x: 20, y: 60, color: "#4f246f", animationDelay: generateRandomDelay() },
+  { x: 55, y: 60, color: "#4f246f", animationDelay: generateRandomDelay() },
+  { x: 5, y: 80, color: "#4f246f", animationDelay: generateRandomDelay() },
+  { x: 40, y: 70, color: "#4f246f", animationDelay: generateRandomDelay() },
+  { x: 80, y: 40, color: "#4f246f", animationDelay: generateRandomDelay() },
+  { x: 75, y: 70, color: "#4f246f", animationDelay: generateRandomDelay() },
 ]);
 
-onMounted(async () => {
-  if (process.client) {
-    const nuxtApp = useNuxtApp();
-    const gsap = nuxtApp.$gsap;
-
-    if (dataFlowContainer.value) {
-      gsap.to(dataFlowContainer.value, {
-        opacity: 1,
-        y: -20,
-        duration: 0.5,
-        scrollTrigger: {
-          trigger: dataFlowContainer.value,
-          start: "top 60%",
-          end: "top 80%",
-          scrub: true,
-          onLeave: () => {
-            gsap.to(hero.value, {
-              background: "transparent",
-              duration: 0.5,
-            });
-            squares.value.forEach((square) => {
-              square.color = "#4f246f";
-            });
-          },
-        },
-      });
-    }
-  }
-});
 </script>
 
 <style scoped>
 .hero {
   @apply flex flex-col items-center justify-center;
   width: 100vw;
-  transition: background 1s ease-in-out;
-  padding-left: 5vw;
-  padding-right: 5vw;
+  height: 100vh;
+  background-image: url('@/assets/images/illustrations/team-ynnovate.jpg'); /* remplace par ton image */
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.overlay {
+  background: linear-gradient(to top, rgb(30, 30, 54), rgba(0, 0, 0, 0.247));
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
 
 .containerHero {
   width: 100%;
   max-width: 1280px;
   margin: 0 auto;
-  height: 100vh;
+  height: auto;
 }
 
 .glowing-square {
@@ -118,6 +98,21 @@ onMounted(async () => {
   transition: background 2s ease-in-out, box-shadow 2s ease-in-out;
   animation: float 3s infinite alternate ease-in-out;
   animation-delay: var(--animation-delay);
+}
+
+.cta-btn {
+  padding: 12px 24px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: white;
+  background: linear-gradient(45deg, #5f035fd7, #1e2039);
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+.cta-btn:hover {
+  background: linear-gradient(45deg, #6100ff, #ff00ff);
+  transform: scale(1.05);
 }
 
 @keyframes float {
@@ -135,18 +130,8 @@ onMounted(async () => {
   color: transparent;
 }
 
-/* RESPONSIVE PART */
+/* RESPONSIVE */
 @media (max-width: 768px) {
-  .hero {
-    padding-left: 4vw;
-    padding-right: 4vw;
-  }
-
-  .containerHero {
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
-
   .glowing-square {
     width: 15px;
     height: 15px;
@@ -154,21 +139,8 @@ onMounted(async () => {
 }
 
 @media (max-width: 480px) {
-  .hero {
-    padding-left: 3vw;
-    padding-right: 3vw;
-  }
-
-  .containerHero {
-    padding: 0 1rem;
-  }
-
   h1 {
-    font-size: 2.5rem; /* Plus petit sur très petits écrans */
-  }
-
-  p {
-    font-size: 1rem;
+    font-size: 2.5rem;
   }
 
   .glowing-square {

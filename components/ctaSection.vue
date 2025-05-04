@@ -1,5 +1,9 @@
 <template>
-  <div class="cta-container">
+  <div
+    class="cta-container"
+    ref="ctaContainer"
+    :class="{ 'animate-in': isVisible }"
+  >
     <div class="logo">
       <img :src="logoSrc" alt="Logo de l'agence" />
     </div>
@@ -10,7 +14,9 @@
 </template>
 
 <script>
+import { ref, onMounted } from "vue";
 import ynnovateLogo from "@/assets/images/logo-ynnovate-removebg.png";
+
 export default {
   props: {
     title: {
@@ -35,6 +41,32 @@ export default {
       default: ynnovateLogo,
     },
   },
+  setup() {
+    const isVisible = ref(false);
+    const ctaContainer = ref(null);
+
+    // Utilisation de onMounted pour éviter l'utilisation de IntersectionObserver côté serveur
+    onMounted(() => {
+      // Vérifier si l'API IntersectionObserver est disponible
+      if (typeof IntersectionObserver !== "undefined" && ctaContainer.value) {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                isVisible.value = true;
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.5 } // Détecte quand 50% du composant est visible
+        );
+
+        observer.observe(ctaContainer.value);
+      }
+    });
+
+    return { isVisible, ctaContainer };
+  },
 };
 </script>
 
@@ -49,6 +81,14 @@ export default {
   color: white;
   text-align: center;
   padding: 20px;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 2s ease, transform 2s ease;
+}
+
+.animate-in {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .logo {

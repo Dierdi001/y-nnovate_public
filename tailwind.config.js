@@ -12,7 +12,22 @@ export default {
       fontFamily: {
         sans: ['Inter', 'sans-serif'],
         manrope: ["Manrope", "sans-serif"]
-      }
+      },
+      animation: {
+        'skew-scroll': 'skew-scroll 50s linear infinite',
+      },
+      keyframes: {
+        'skew-scroll': {
+          '0%': {
+            transform:
+              'rotatex(10deg) rotateZ(-10deg) skewX(10deg) translateZ(0) translateY(0)',
+          },
+          '100%': {
+            transform:
+              'rotatex(10deg) rotateZ(-10deg) skewX(10deg) translateZ(0) translateY(-100%)',
+          },
+        },
+      },
     },
   },
   plugins: [],

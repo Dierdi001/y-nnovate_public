@@ -1,6 +1,6 @@
 <template>
-  <section class="ourServices-section h-full mt-12">
-    <h3 class="section-title text-5xl md:text-6xl lg:text-7xl">Nos Services</h3>
+  <section class="ourServices-section h-full mt-24">
+    <h3 class="section-title text-4xl md:text-5xl lg:text-6xl font-bold gradient-text font-manrope leading-tight">Nos Services</h3>
     <div class="grid-row row-1 mt-8">
       <ServiceMarketing 
         class="box box-1"  
@@ -65,16 +65,6 @@ export default {
   gap: 1rem;
 }
 
-.section-title {
-  font-weight: medium;
-  margin-bottom: 8px;
-  text-align: center;
-  font-family: "Manrope", sans-serif;
-  background: linear-gradient(to bottom, #ededed, #737374);
-  -webkit-background-clip: text;
-  color: transparent;
-  margin-bottom: 1rem;
-}
 
 /* Première ligne */
 .row-1 {

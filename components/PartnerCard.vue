@@ -24,6 +24,7 @@ defineProps({
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   text-decoration: none;
   color: white;
   border: 1px solid rgb(56, 56, 56);
