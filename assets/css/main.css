@@ -12,6 +12,8 @@ html, body {
   overflow-x: hidden;
   font-family: "Manrope", 'Sans-serif';
   background-color: white;
+  cursor: none; /* On masque le curseur natif */
+
 }
 
 .container {
@@ -24,4 +26,43 @@ html, body {
   background: linear-gradient(to bottom, #ededed, #737374);
   -webkit-background-clip: text;
   color: transparent;
+}
+
+/* Pour Chrome, Edge et Safari */
+::-webkit-scrollbar {
+  width: 8px;              /* Largeur verticale */
+  height: 8px;             /* Hauteur horizontale */
+}
+
+::-webkit-scrollbar-track {
+  background: #4f246f;     /* Couleur de fond */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #4f246f;     /* Couleur du "pouce" */
+  border-radius: 0px;     /* Coins arrondis */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #341a4f;     /* Couleur au survol */
+}
+
+/* Pour Firefox */
+* {
+  scrollbar-width: thin;              /* "auto" ou "thin" */
+  scrollbar-color: #4f246f;   /* thumb et track */
+}
+
+.custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 8px;
+  height: 8px;
+  background-color: rgb(188, 185, 185);
+  border-radius: 50%;
+  box-shadow: 0 0 10px #4f246f;
+  pointer-events: none;
+  z-index: 9999;
+  transition: transform 0.05s ease-out;
 }

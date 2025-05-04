@@ -4,6 +4,8 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: ['@nuxtjs/tailwindcss'],
   css: ["~/assets/css/main.css"],
-  plugins: ["~/plugins/gsap.js"]
+  plugins: ["~/plugins/gsap.js"],
+  components: true,  // Active l'automatisation des composants
+
 
 })

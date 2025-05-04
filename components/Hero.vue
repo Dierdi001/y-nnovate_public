@@ -39,23 +39,20 @@
 
 <script setup>
 import { ref } from "vue";
-import teamDev from "../assets/images/illustrations/team-dev-3.jpg";
-import marketing from "../assets/images/illustrations/marketing.jpg";
-import audit from "../assets/images/illustrations/audit.jpg";
 
 const hero = ref(null);
 
 const generateRandomDelay = () => `${(Math.random() * 5).toFixed(5)}s`;
 
 const squares = ref([
-  { x: 0, y: 20, color: "#4f246f", animationDelay: generateRandomDelay() },
-  { x: 5, y: 30, color: "#4f246f", animationDelay: generateRandomDelay() },
+  { x: 10, y: 20, color: "#4f246f", animationDelay: generateRandomDelay() },
+  { x: 35, y: 30, color: "#4f246f", animationDelay: generateRandomDelay() },
   { x: 50, y: 30, color: "#4f246f", animationDelay: generateRandomDelay() },
   { x: 20, y: 60, color: "#4f246f", animationDelay: generateRandomDelay() },
   { x: 55, y: 60, color: "#4f246f", animationDelay: generateRandomDelay() },
-  { x: 5, y: 80, color: "#4f246f", animationDelay: generateRandomDelay() },
+  { x: 35, y: 80, color: "#4f246f", animationDelay: generateRandomDelay() },
   { x: 40, y: 70, color: "#4f246f", animationDelay: generateRandomDelay() },
-  { x: 80, y: 40, color: "#4f246f", animationDelay: generateRandomDelay() },
+  { x: 85, y: 40, color: "#4f246f", animationDelay: generateRandomDelay() },
   { x: 75, y: 70, color: "#4f246f", animationDelay: generateRandomDelay() },
 ]);
 
